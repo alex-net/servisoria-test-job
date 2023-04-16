@@ -1,5 +1,7 @@
 <?php
 
+use app\components\SiteFormatter;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -17,6 +19,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'MYcB8NDM3NjAo4xhFp1VVGT9l-DfODkZ',
         ],
+        'formatter' => SiteFormatter::class,
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -53,6 +56,9 @@ $config = [
             'rules' => [
                 '/' => 'site/index',
                 'about' => 'site/about',
+                'anketa-todo' => 'question/anketa-form-processing',
+                'admin-ql' => 'question/list',
+                'admin-ql-xlsx' => 'question/export',
             ],
         ],
 
@@ -66,7 +72,7 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1','*', '::1'],
     ];
 
     $config['bootstrap'][] = 'gii';

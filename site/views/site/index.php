@@ -1,4 +1,5 @@
 <?php
+use app\widgets\QuestionsWidget;
 
 /** @var yii\web\View $this */
 
@@ -13,6 +14,7 @@ $this->title = 'My Yii Application';
 
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
+    <?= QuestionsWidget::widget() ?>
 
     <div class="body-content">
 
