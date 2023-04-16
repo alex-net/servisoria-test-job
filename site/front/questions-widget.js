@@ -12,7 +12,6 @@
                 formActiveData.attributes.forEach((el, ind) => {
                     formActiveData.attributes[ind].status = 0;
                 });
-                console.log(formActiveData, 'data');
                 let fd = new FormData(form[0]);
                 fetch(form.attr('action'), {
                     method: 'post',
@@ -22,7 +21,6 @@
                     form = initForm();
                     form.yiiActiveForm('init', formActiveData.attributes, formActiveData.settings);
                 });
-                console.log('submit');
             }
         });
         return form;
@@ -30,5 +28,4 @@
 
     initForm();
 
-    console.log('ds');
 })(jQuery)
